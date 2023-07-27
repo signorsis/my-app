@@ -31,6 +31,7 @@ export async function POST(request: NextRequest) {
       id: user._id,
       email: user.email,
       password: user.password,
+      userName: user.username
     };
     //create token
     const token =  jwt.sign(tokenData, process.env.TOKEN_SECRET!, {

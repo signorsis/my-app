@@ -21,7 +21,8 @@ const Signup = () => {
       const response = await axios.post("/api/users/signup", user);
       console.log(response.data.message);
 
-      router.push("/login");
+
+      router.push("/profile/");
       // if (response.data.error) {
       //   throw response.data.error;
       // }

@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
     require: [true, "please provide username"],
     min: 6
   },
-  isVerfied: {
+  isVerified: {
     type: Boolean,
     default: false
   },

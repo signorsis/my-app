@@ -1,6 +1,6 @@
 import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
-
+import sendEmail from "@/helpers/mailers";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 connect();
@@ -32,6 +32,14 @@ export async function POST(request: NextRequest) {
       password: hashedPassword,
     });
     await newUser.save();
+
+   const userId=newUser._id;
+     const emailType="verifyUser"
+     
+    //send a mailtrap verfication e-mail using mailer in helper
+    await sendEmail({email,userId,emailType});
+    //after the mail is sent it sendEmail also updates the user's verification token and date
+
     return NextResponse.json(
       { message: "user created successfully " },
       { status: 201 }

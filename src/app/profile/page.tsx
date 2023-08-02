@@ -28,7 +28,7 @@ function Profile() {
    setUser(response.data.user);
 
    
-   
+  
     } catch (error) {
       console.log(error);
       

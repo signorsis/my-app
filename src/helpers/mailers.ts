@@ -35,11 +35,11 @@ const transporter = nodemailer.createTransport({
       
     })
     if(emailType==="forgotPassword")
-    {
+    {  
       await  User.findByIdAndUpdate(userId,{
         forgotPasswordToken:verificationToken,
        forgotPasswordTokenExpiry:Date.now()+1000*60*10
-  
+        
       })
     }
    }
